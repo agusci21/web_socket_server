@@ -30,15 +30,17 @@ class Server {
 
   sockets() {
     this.io.on('connection', (socket) => {
-
       socket.on('disconnect', () => {
         console.log('Desconectado', socket.id)
       })
 
-      socket.on('enviar-mensaje', (payload) => {
+      socket.on('enviar-mensaje', (payload, callback) => {
+        const id = 123456
+
+        callback(id)
+
         this.io.emit('enviar-mensaje', payload)
       })
-
     })
   }
 
