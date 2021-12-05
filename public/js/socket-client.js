@@ -21,6 +21,7 @@ socket.on('disconnect', () => {
 })
 
 socket.on('enviar-mensaje', (payload) => {
+  alert(`Nuevo mensaje: ${payload.mensaje}`)
   console.log(payload)
 })
 
